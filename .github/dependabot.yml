@@ -1,7 +1,7 @@
 version: 2
 
 updates:
-  - package-ecosystem: nvim
+  - package-ecosystem: gitsubmodule
     schedule:
         interval: "daily"
     directory: /

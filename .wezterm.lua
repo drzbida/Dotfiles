@@ -220,4 +220,12 @@ local keybinding = {
 	},
 }
 
-return Config:new():add(launch_menu):add(appearance):add(keybinding).inner
+local mux = {
+	unix_domains = { {
+		name = "unix",
+	} },
+
+	default_gui_startup_args = { "connect", "unix" },
+}
+
+return Config:new():add(launch_menu):add(appearance):add(keybinding):add(mux).inner

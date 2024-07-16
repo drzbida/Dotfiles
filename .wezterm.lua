@@ -57,7 +57,16 @@ local function format_tabs(tab, tabs)
 	local active_tab_cols = mux_tab_cols - (tab_count - 1) * inactive_tab_cols
 
 	local file = wezterm.mux.get_tab(tab.tab_id):active_pane():get_current_working_dir()
-	local file_path = file.file_path
+	local file_path = nil
+	if file == nil then
+		if tab.active_pane.domain_name:match("SSH") then
+			file_path = tab.active_pane.title
+		else
+			file_path = " "
+		end
+	else
+		file_path = file.file_path
+	end
 	local title = " " .. file_path .. " "
 	local title_cols = wezterm.column_width(title)
 	local is_active = tab.is_active
@@ -216,6 +225,11 @@ local keybinding = {
 			key = "z",
 			mods = "ALT",
 			action = act.TogglePaneZoomState,
+		},
+		{
+			key = "p",
+			mods = "ALT",
+			action = act.PasteFrom("Clipboard"),
 		},
 	},
 }

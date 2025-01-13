@@ -1,7 +1,7 @@
 $DotfilesDir = "$env:USERPROFILE\Dotfiles"
 
 $Links = @{
-  "$DotfilesDir\.wezterm.lua" = "$env:USERPROFILE\.wezterm.lua"
+  "$DotfilesDir\wezterm" = "$env:USERPROFILE\.config\wezterm"
   "$DotfilesDir\Microsoft.PowerShell_profile.ps1" = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
   "$DotfilesDir\nvim" = "$env:LOCALAPPDATA\nvim"
 }

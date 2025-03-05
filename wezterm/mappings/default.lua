@@ -68,9 +68,9 @@ local mappings = {
   { "<M-p>", act.ActivateKeyTable { name = "pick_mode" }, "pick mode" },
 }
 
-for i = 1, 24 do
+for i = 1, 9 do
   mappings[#mappings + 1] =
-    { "<S-F" .. i .. ">", act.ActivateTab(i - 1), "activate tab " .. i }
+    { "<M-" .. i .. ">", act.ActivateTab(i - 1), "activate tab " .. i }
 end
 
 Config.keys = {}
